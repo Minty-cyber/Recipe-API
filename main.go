@@ -27,7 +27,8 @@ var recipes []Recipe
 
 func init() {
 	recipes = make([]Recipe, 0)
-	file := os.ReadFile("recipes.json")
+	file, _ := os.ReadFile("recipes.json")
+	_ = json.Unmarshal([]byte(file), &recipes)
 }
 	
 
