@@ -39,7 +39,7 @@ func NewRecipeHandler(c *gin.Context) {
 	recipe.ID = guid.String()
 	recipe.PublishedAt = time.Now()
 	recipes = append(recipes, recipe)
-	c.JSON(http.StatusOK, recipes)
+	c.JSON(http.StatusOK, recipe)
 	
 }
 
