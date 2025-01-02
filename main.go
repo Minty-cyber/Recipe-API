@@ -7,7 +7,7 @@ import (
 	"github.com/gin-gonic/gin"
 	"github.com/rs/xid"
 	"encoding/json"
-	"io/ioutil"
+	"os"
 
 )
 
@@ -27,7 +27,7 @@ var recipes []Recipe
 
 func init() {
 	recipes = make([]Recipe, 0)
-	file := 
+	file := os.ReadFile("recipes.json")
 }
 	
 
