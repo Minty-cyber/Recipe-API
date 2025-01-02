@@ -8,6 +8,8 @@ import (
 	"github.com/rs/xid"
 )
 
+guid := xid.New()
+
 type Recipe struct {
 	ID string `json:"id"`
 	Name string `json:"name"`
@@ -17,7 +19,7 @@ type Recipe struct {
 	PublishedAt time.Time `json:"publishedAt"`
 }
 var recipes []Recipe
-guid := xid.New()
+
 
 func init() {
 	recipes = make([]Recipe, 0)
@@ -34,6 +36,7 @@ func NewRecipeHandler(c *gin.Context) {
 		})
 		return 
 	}
+	recipe.ID = guid.String()
 	
 }
 
