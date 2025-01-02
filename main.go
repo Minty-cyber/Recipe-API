@@ -50,7 +50,8 @@ func ListRecipesHandler(c *gin.Context) {
 
 func main () {
 	router := gin.Default()
-	router.POST("/recipes", NewRecipeHandler)
+	router.POST("/make-recipes", NewRecipeHandler)
+	router.GET("/recipes", NewRecipeHandler)
 	router.Run()
 	
 }
