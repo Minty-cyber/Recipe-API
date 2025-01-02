@@ -39,12 +39,13 @@ func NewRecipeHandler(c *gin.Context) {
 	recipe.ID = guid.String()
 	recipe.PublishedAt = time.Now()
 	recipes = append(recipes, recipe)
+	c.JSON(http.StatusOK, recipes)
 	
 }
 
 func main () {
 	router := gin.Default()
-	router.POST("/recipe", NewRecipeHandler)
+	router.POST("/recipes", NewRecipeHandler)
 	router.Run()
 	
 }
