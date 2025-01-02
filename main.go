@@ -8,7 +8,7 @@ import (
 	"github.com/rs/xid"
 )
 
-guid := xid.New()
+var guid = xid.New()
 
 type Recipe struct {
 	ID string `json:"id"`
