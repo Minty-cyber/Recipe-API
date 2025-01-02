@@ -56,7 +56,7 @@ func ListRecipesHandler(c *gin.Context) {
 func UpdateRecipeHandler(c *gin.Context) {
 	id := c.Param("id")
 	var recipe Recipe
-	if err := c.ShouldBindJSON(recipe); err != nil {
+	if err := c.ShouldBindJSON(&recipe); err != nil {
 		c.JSON(http.StatusBadRequest, gin.H{
 			"error": err.Error(),
 		})
@@ -75,7 +75,9 @@ func UpdateRecipeHandler(c *gin.Context) {
 		return
 	}
 
+	recipe.ID = recipes[index].ID
 	recipes[index] = recipe
+	
 	c.JSON(http.StatusOK, recipe)
 }
 
