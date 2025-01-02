@@ -5,7 +5,7 @@ import (
 	"time"
 )
 
-type Reciper struct {
+type Recipe struct {
 	ID string `json:"id"`
 	Name string `json:"name"`
 	Tags []string `json:"tags"`
@@ -13,6 +13,13 @@ type Reciper struct {
 	Instructions []string `json:"instructions"`
 	PublishedAt time.Time `json:"publishedAt"`
 }
+var recipes []Recipe
+
+func init() {
+	recipes = make([]Recipe, 0)
+}
+	
+
 
 func NewRecipeHandler(c *gin.Context) {
 	
