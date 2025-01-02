@@ -57,6 +57,7 @@ func main () {
 	router := gin.Default()
 	router.POST("/make-recipes", NewRecipeHandler)
 	router.GET("/recipes", ListRecipesHandler)
+	router.PUT("/recipes/:id", UpdateRecipeHandler)
 	router.Run()
 	
 }
