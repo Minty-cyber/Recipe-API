@@ -30,7 +30,9 @@ func NewRecipeHandler(c *gin.Context) {
 		c.JSON(http.StatusBadRequest, gin.H{
 			"error": err.Error(),
 		})
+		return 
 	}
+	recipe.ID = xid.New().string()
 }
 
 func main () {
