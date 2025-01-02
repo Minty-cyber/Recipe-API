@@ -1,8 +1,10 @@
 package main
 
 import (
-	"github.com/gin-gonic/gin"
+	"net/http"
 	"time"
+
+	"github.com/gin-gonic/gin"
 )
 
 type Recipe struct {
@@ -22,7 +24,13 @@ func init() {
 
 
 func NewRecipeHandler(c *gin.Context) {
-	
+	var recipe Recipe
+
+	if err := c.ShouldBindJSON(&recipe); err != nil {
+		c.JSON(http.StatusBadRequest, gin.H{
+			"error": err.Error(),
+		})
+	}
 }
 
 func main () {
