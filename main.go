@@ -6,7 +6,7 @@ import (
 )
 
 type Reciper struct {
-	
+	ID string `json:"id"`
 }
 
 func main () {
