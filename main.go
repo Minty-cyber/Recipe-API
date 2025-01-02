@@ -37,6 +37,8 @@ func NewRecipeHandler(c *gin.Context) {
 		return 
 	}
 	recipe.ID = guid.String()
+	recipe.PublishedAt = time.Now()
+	recipes = append(recipes, recipe)
 	
 }
 
