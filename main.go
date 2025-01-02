@@ -6,6 +6,9 @@ import (
 
 	"github.com/gin-gonic/gin"
 	"github.com/rs/xid"
+	"encoding/json"
+	"io/ioutil"
+
 )
 
 var guid = xid.New()
@@ -24,6 +27,7 @@ var recipes []Recipe
 
 func init() {
 	recipes = make([]Recipe, 0)
+	file := 
 }
 	
 
@@ -51,7 +55,7 @@ func ListRecipesHandler(c *gin.Context) {
 func main () {
 	router := gin.Default()
 	router.POST("/make-recipes", NewRecipeHandler)
-	router.GET("/recipes", NewRecipeHandler)
+	router.GET("/recipes", ListRecipesHandler)
 	router.Run()
 	
 }
