@@ -44,7 +44,7 @@ func NewRecipeHandler(c *gin.Context) {
 
 func main () {
 	router := gin.Default()
-	router.POST("/", NewRecipeHandler)
+	router.POST("/recipe", NewRecipeHandler)
 	router.Run()
 	
 }
