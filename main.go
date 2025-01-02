@@ -54,7 +54,28 @@ func ListRecipesHandler(c *gin.Context) {
 }
 
 func UpdateRecipeHandler(c *gin.Context) {
+	id := c.Param("id")
+	var recipe Recipe
+	if err := c.ShouldBindJSON(recipe); err != nil {
+		c.JSON(http.StatusBadRequest, gin.h{
+			"error": err.Error(),
+		})
+		return
+	}
+	index := -1
+	for i := 0; i < len(recipes); i++ {
+		if recipes[i].ID == id {
+			index = index
+		}
+	}
+	if index == -1 {
+		c.JSON(http.StatusNotFound, gin.H{
+			"error": "recipe not found",
+		})
+		return
+	}
 
+	recipes[index] = recipe
 }
 
 func main () {
