@@ -5,6 +5,7 @@ import (
 	"time"
 
 	"github.com/gin-gonic/gin"
+	"github.com/rs/xid"
 )
 
 type Recipe struct {
@@ -16,6 +17,7 @@ type Recipe struct {
 	PublishedAt time.Time `json:"publishedAt"`
 }
 var recipes []Recipe
+guid := xid.New()
 
 func init() {
 	recipes = make([]Recipe, 0)
@@ -32,7 +34,7 @@ func NewRecipeHandler(c *gin.Context) {
 		})
 		return 
 	}
-	recipe.ID = xid.New().string()
+	
 }
 
 func main () {
